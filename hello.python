@@ -1,0 +1,93 @@
+#! /usr/local/bin python3
+import sys
+
+x = 'runoob'
+
+print("Hello, World!")
+if True:
+    pass  # TODO
+    print("true")
+else:
+    print("false")
+
+a = True
+b = False
+
+a and b
+a or b
+not a
+
+sys.stdout.write(x + '\n')
+
+# del x
+# print(x)
+
+x = 'hello'
+print(x)
+
+
+def printinfo(*vartuple):
+    '''
+    This function means nothing but shit and fuck.
+    :param vartuple: {*vartuple}
+    :return: print things and no return
+    '''
+    # 打印任何传入的参数
+    print("输出: ", end="")
+    for var in vartuple:
+        print(var, end=";")
+    return
+
+
+printinfo("a", "b", 'c')
+print()
+print(printinfo.__doc__)
+
+# 可写函数说明
+def changeme(mylist):
+    # "修改传入的列表"
+    # mylist = [1, 2, 3, 4]
+    # mylist[0] = 222
+    mylist.append('asdf')
+    print("函数内取值: ", mylist)
+    return
+
+
+# 调用changeme函数
+mylist = [10, 20, 30]
+# mylist = (2, 'b')
+changeme(mylist)
+print("函数外取值: ", mylist)
+
+
+class MyFirstClass:
+
+    class_value = "first class"
+    __private_value = "private"
+
+    def __init__(self):
+        self.value = "aaa"
+        self.__private_value = "new private"
+
+    def print_self(self):
+        self.class_value = "abc"
+        print("hello", self.value)
+        print("hello", self.class_value)
+        print("hello private", self.__private_value)
+
+    def print_anothon(self):
+        print("self")
+
+    @classmethod
+    def show_class_value(cls):
+        print("class name is {}".format(cls.class_value))
+
+c = MyFirstClass()
+c.print_self()
+print(c.class_value)
+print("c.value=", c.value)
+d = MyFirstClass
+print(d.class_value)
+print(MyFirstClass.class_value)
+MyFirstClass.show_class_value()
+# print(c.__private_value)
